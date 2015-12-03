@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'rails_12factor'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
@@ -17,5 +18,6 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'
+  gem 'sqlite3'
 end
 

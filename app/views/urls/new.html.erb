@@ -1,4 +1,4 @@
-<%= form_tag '/shorten' do %>
+<%= form_tag '/shorten', remote: true do %>
   <%= label_tag :url, "Enter the URL you want to shorten" %>
   <%= text_field_tag :url %>
   <br/>
@@ -6,9 +6,7 @@
 <% end %>
 
 <% unless session[:urls].empty? %>
-  <ul>
-    <% session[:urls].each do |shortened_url, submitted_url| %>
-      <li><%= link_to "#{root_path}""#{shortened_url}", shortened_url %> -> <%= link_to submitted_url, submitted_url %> </li>
-    <% end %>
+  <ul id= "urls">
+
   </ul>
 <% end %>

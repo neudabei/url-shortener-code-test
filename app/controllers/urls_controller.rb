@@ -3,12 +3,17 @@ class UrlsController < ApplicationController
   end
 
   def create
-    submitted_url = params[:url]
-    shortened_url = generate_short_string
+    @submitted_url = params[:url]
+    @shortened_url = generate_short_string
 
     session[:urls] ||= Hash.new
-    session[:urls][shortened_url] = submitted_url
-    redirect_to root_path
+    session[:urls][@shortened_url] = @submitted_url
+    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+
   end
 
   def redirect
