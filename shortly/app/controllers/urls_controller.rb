@@ -11,6 +11,10 @@ class UrlsController < ApplicationController
     redirect_to root_path
   end
 
+  def redirect
+    redirect_to session[:urls][(params[:shortly_url])]
+  end
+
   private 
 
   def generate_short_string

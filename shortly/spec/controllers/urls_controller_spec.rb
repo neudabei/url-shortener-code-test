@@ -23,4 +23,16 @@ describe UrlsController do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe "GET redirect" do
+    before do
+      session[:urls] = Hash.new
+      session[:urls]["1a2b3c"] = "http://www.sueddeutsche-zeitung.de"
+      get :redirect, shortly_url: "1a2b3c"
+    end
+
+    it "redirects to the long url" do
+      expect(response).to redirect_to "http://www.sueddeutsche-zeitung.de"
+    end
+  end
 end
