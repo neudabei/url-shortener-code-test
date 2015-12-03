@@ -7,6 +7,8 @@
 
 <% unless session[:urls].empty? %>
   <ul id= "urls">
-
+    <% session[:urls].each do |shortened_url, submitted_url| %>
+      <li><%= link_to "#{root_path}""#{shortened_url}", shortened_url %> -> <%= link_to submitted_url, submitted_url %> </li>
+    <% end %>
   </ul>
 <% end %>
