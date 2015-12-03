@@ -4,7 +4,7 @@ describe UrlsController do
   describe "POST Create" do
     context "correct URL entered" do
       before do
-        post :create, url: "http://www.sueddeutsche-zeitung.de/"
+        post :create, url: "http://www.sueddeutsche-zeitung.de/this-interesting-article"
       end
 
       it "generates a short string" do
@@ -12,7 +12,7 @@ describe UrlsController do
       end
 
       it "stores a new short url in the session hash" do
-        expect(session[:urls]).to eq({session[:urls].keys.first => "http://www.sueddeutsche-zeitung.de/"})
+        expect(session[:urls]).to eq({session[:urls].keys.first => "http://www.sueddeutsche-zeitung.de/this-interesting-article"})
       end
 
       it "stores multiple urls in the session hash" do
