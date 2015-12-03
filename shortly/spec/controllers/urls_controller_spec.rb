@@ -14,6 +14,11 @@ describe UrlsController do
       expect(session[:urls]).to eq({session[:urls].keys.first => "http://www.sueddeutsche-zeitung.de/"})
     end
 
+    it "stores multiple urls in the session hash" do
+      post :create, url: "http://www.google.com/"
+      expect(session[:urls].keys.count).to eq(2)
+    end
+
     it "renders the new template" do
       expect(response).to redirect_to root_path
     end

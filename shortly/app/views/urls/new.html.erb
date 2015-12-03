@@ -1,0 +1,6 @@
+<%= form_tag '/shorten' do %>
+  <%= label_tag :url, "Enter the URL you want to shorten" %>
+  <%= text_field_tag :url %>
+  <br/>
+  <%= submit_tag "Shorten me"%>
+<% end %>

@@ -6,7 +6,7 @@ class UrlsController < ApplicationController
     submitted_url = params[:url]
     shortened_url = generate_short_string
 
-    session[:urls] = Hash.new
+    session[:urls] ||= Hash.new
     session[:urls][shortened_url] = submitted_url
     redirect_to root_path
   end
