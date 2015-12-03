@@ -1,20 +1,14 @@
 # Url Shortener Code Test
 
-We'd like you to create a URL shortening service.
-- It should have a route where you can send a POST request with a URL in the body, which
-returns a short URL.
-- When you send a GET request to a previously returned URL, it should redirect to the
-POSTed URL.
-- We'd also like a simple frontend that can create and display shortened URLs without
-reloading the page.
-- For simplicity, don't worry about persisting the URLs between restarts (ie, we don't
-need it to talk to an external database).
+This is a simple Ruby on Rails app to create shorter copies of URLs. It stores them in a hash and doesn't write information entered into a database.  
+ 
+The app is deployed here: [https://shortly2015.herokuapp.com/](https://shortly2015.herokuapp.com/)
 
-Use whatever languages and frameworks you are comfortable with. Don't worry about getting
-the whole thing working flawlessly, this is more to see how you structure a program. Please
-don't spend more than a few hours on it.
+To run it locally clone this folder to your desktop and cd into it via your Terminal. 
 
-## Submission
+If you have Rails installed run the following commands:  
+- `$ bundle install`  
+- `$ rake db:migrate`  
+- `$ rails server`  
 
-Please fork this repository, write some code and update this README with a guide of how to
-run it.
+
