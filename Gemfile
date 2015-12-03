@@ -18,6 +18,5 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'
-  gem 'sqlite3'
 end
 
