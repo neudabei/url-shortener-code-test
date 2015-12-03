@@ -5,16 +5,20 @@ class UrlsController < ApplicationController
   end
 
   def create
-    session[:urls] ||= Hash.new
+    if params[:url] != "" && url_correct?
+      session[:urls] ||= Hash.new
 
-    @submitted_url = params[:url]
-    @shortened_url = generate_short_string
+      @submitted_url = params[:url]
+      @shortened_url = generate_short_string
 
-    session[:urls][@shortened_url] = @submitted_url
-    
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js
+      session[:urls][@shortened_url] = @submitted_url
+      
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
+    else
+      render :new
     end
   end
 
@@ -26,5 +30,9 @@ class UrlsController < ApplicationController
 
   def generate_short_string
     SecureRandom.urlsafe_base64(4)
+  end
+
+  def url_correct?
+    params[:url].start_with?('http://')
   end
 end

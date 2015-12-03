@@ -1,6 +1,6 @@
 <%= form_tag '/shorten', remote: true do %>
   <div class="form-group">
-    <input type="text" class="form-control" id="url" placeholder="Enter the URL you would like to shorten" name="url">
+    <input type="text" class="form-control" id="url" placeholder="Enter the URL you would like to shorten and make sure it starts with 'http://'" name="url">
   </div>
   <button type="submit" class="btn btn-default">Shorten me</button>
 <% end %>

@@ -26,13 +26,24 @@ describe UrlsController do
     end
 
     context "incorrect URL entered" do
-      it "sets flash error message"
-      it "it doesn't write to sessions hash"
+      before do
+        post :create, url: "-zeitung.de/"
+      end
+
+      it "it doesn't write to sessions hash" do
+        expect(session[:urls]).to eq(nil)
+      end
+
     end
 
     context "no URL entered" do
-      it "sets flash error message"
-      it "doesn't write to sessions hash"
+      before do
+        post :create, url: ""
+      end
+
+      it "it doesn't write to sessions hash" do
+        expect(session[:urls]).to eq(nil)
+      end
     end
   end
 
