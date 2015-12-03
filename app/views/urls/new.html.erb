@@ -1,14 +1,18 @@
 <%= form_tag '/shorten', remote: true do %>
-  <%= label_tag :url, "Enter the URL you want to shorten" %>
-  <%= text_field_tag :url %>
-  <br/>
-  <%= submit_tag "Shorten me"%>
+  <div class="form-group">
+    <input type="text" class="form-control" id="url" placeholder="Enter the URL you would like to shorten" name="url">
+  </div>
+  <button type="submit" class="btn btn-default">Shorten me</button>
 <% end %>
 
-<% if session[:urls] %>
-  <ul id= "urls">
+<br>
+
+
+<h3>Your shortly links</h3>
+<ul id= "urls">
+  <% if session[:urls] %>
     <% session[:urls].reverse_each.each do |shortened_url, submitted_url| %>
-      <li><%= link_to "#{root_path}""#{shortened_url}", shortened_url %> -> <%= link_to submitted_url, submitted_url %> </li>
+      <li><%= link_to "#{root_path}""#{shortened_url}", shortened_url %> => <%= link_to submitted_url, submitted_url %> </li>
     <% end %>
   </ul>
 <% end %>
