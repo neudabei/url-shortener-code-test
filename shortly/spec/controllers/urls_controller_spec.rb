@@ -11,7 +11,7 @@ describe UrlsController do
     end
 
     it "renders the new template" do
-      expect(response).to render_template :new
+      expect(response).to redirect_to root_path
     end
   end
 end
