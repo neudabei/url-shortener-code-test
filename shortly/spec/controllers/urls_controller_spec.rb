@@ -6,8 +6,12 @@ describe UrlsController do
       post :create, url: "http://www.sueddeutsche-zeitung.de/"
     end
 
+    it "generates a short string" do
+      expect(session[:urls].keys.first.length).to eq(6)
+    end
+
     it "stores a new short url in the session hash" do
-      expect(session[:urls]).to eq({"1a2b3b" => "http://www.sueddeutsche-zeitung.de/"})
+      expect(session[:urls]).to eq({session[:urls].keys.first => "http://www.sueddeutsche-zeitung.de/"})
     end
 
     it "renders the new template" do
